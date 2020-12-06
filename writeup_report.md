@@ -25,25 +25,29 @@ In this project we will detect lane lines in images using Python and OpenCV.  Op
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 ### Pipeline
-1. Convert Image to Gray Scale image using Open CV library cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+1. Convert Image to Gray Scale image using Open CV library 
+* cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 2. Convert the image to HSV then use color thresholding to identify Yellow lines
+* Create a mask for yellow lines
+* Create a mask for White lines
+* Apply a bitwise OR to combine Yellow and White masks
 3. Apply Guassian filter
 4. Generate Canny edges
-5. CReate as mask for region of interest
+5. Identify region of Interest and create mask for the region we are interested in. 
 6. Generate Hough lines
 7. Combine the original image and the lines to generate final output
 
 Original Image
 ![image1]
-##Convert to Gray Scale Image 
+### Convert to Gray Scale Image 
 ![image2]
-##Apply Mask
+### Apply Mask
 ![image3]
-## Canny Edges
+### Canny Edges
 ![image4]
-## Lines
+### Lines
 ![image5]
-## Final Output
+### Final Output
 ![image6]
 
 
@@ -51,9 +55,11 @@ Original Image
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One of the shortcomings is detection of teh lines when the image is bright due to sunlight. 
+One of the shortcomings is detection of the lines when the image is bright due to sunlight. 
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to smooth the lines. .
+* A possible improvement would be to smooth the lines. They are a bit jittery on the broken lines. 
+* Test on images with different lighting condtions and fine tune teh parameters.
+
